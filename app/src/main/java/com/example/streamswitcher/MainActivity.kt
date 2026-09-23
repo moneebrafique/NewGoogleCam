@@ -116,7 +116,7 @@ class MainActivity : AppCompatActivity() {
     private fun bindCameraUseCases() {
         val provider = cameraProvider ?: return
         val preview = Preview.Builder().build().also {
-            it.surfaceProvider = binding.previewView.surfaceProvider
+            it.setSurfaceProvider(binding.previewView.surfaceProvider)
         }
         val selector = CameraSelector.Builder().requireLensFacing(currentLensFacing).build()
         provider.unbindAll()
